@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<header name = "Access-Control-Allow-Origin" value = "*" />
+		<style>
+			table {background-color : yellow;}
+			table th{background-color : skyblue;}
+			input {width : 50px;}
+		</style>
+	</head>
+	<body>
+		<ul>
+		<form action="http://localhost/cnt.php" method="post">
+		<table>
+		<tr>
+			<th>대</th> 
+			<th>중</th>
+			<th>소</th>
+			<th>총합</th>
+		</tr>
+		<tr>
+			<td> <input type="number" id="big" name="inBig" value="0"></td>
+			<td> <input type="number" id="md"  name="inMd"  value="0"></td>
+			<td> <input type="number" id="sm"  name="inSm"  value="0"></td>
+			<td> <input type="number" id="total" name="inTotal" value="1"></td>
+		</tr>
+		<tr>
+			<td><button type = "button" name="big" value="1"onclick="counter(name)">+</button></td>
+			<td><button name="md" value="1" onclick="counter(name)">+</button></td>
+			<td><button name="sm" value="1" onclick="counter(name)">+</button></td>
+		</tr>
+		</table>
+		<input type="button" value="fetch" id="btnFectch">
+		<input type="submit" value="서버저장"  />
+		</form>
+		<article>aaa</article>
+	</body>
+	<script>
+			var btnFetch = document.getElementById ("btnFectch")
+			function counter(name){
+				var a = document.getElementById(name).value;
+				console.log(name);
+				document.getElementById(name).value = ++a;
+			}
+			
+			function saveCount2(){
+				if (typeof(Storage !== "undefined")){
+					localStorage.setItem("sizeCount")
+				}else {
+					alert("지원 되지 않습니다.")
+				}
+			}
+			
+			function saveCount(){
+				var db = indexedDB.open("cars", 3);
+				if (db.version !== '1.0') {
+				  var olddb = indexedDB.open('cars', 3);
+				  olddb.createObjectStore('big', {big: 1});
+				  //olddb.createIndex('BookAuthor', 'books', 'author', false);
+				  olddb.setVersion("1.0");  
+				}
+			}
+			
+			
+			/*fetchAjax = fetch('http://localhost/cnt.php')
+			.then(function(response) {
+				response.text().then(function(text){
+				document.querySelector('article').innerHTML = text;
+				})
+			});*/
+			btnFectch.addEventListener ("click",
+				function(){fetch('http://localhost/cnt.php')
+					.then(function(response) {
+					response.text().then(function(text){
+					document.querySelector('article').innerHTML = text;
+					})
+				})//fetch를 하면 바로 실행되서 function 감싼다.
+			    }
+			);
+	</script>
+</html>
