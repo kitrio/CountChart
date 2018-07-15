@@ -76,9 +76,6 @@
 			btnFectch.addEventListener ("click",
 				function(){fetch('http://localhost/cnt.php' , {
 					method : "POST",
-					headers: {
- 					'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
- 					},
 					body: form
 					})
 					.then(console.log(form))
