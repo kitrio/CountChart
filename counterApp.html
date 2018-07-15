@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<ul>
-		<form action="http://localhost/cnt.php" method="post">
+		<form action="http://localhost/cnt.php" method="post" id="formCnt">
 		<table>
 		<tr>
 			<th>대</th> 
@@ -70,13 +70,19 @@
 				document.querySelector('article').innerHTML = text;
 				})
 			});*/
+			var form  = new FormData(document.getElementById("formCnt"));
+			//var form2 = new FormData();
+			//form2.append('big','md','sm','total');
 			btnFectch.addEventListener ("click",
-				function(){fetch('http://localhost/cnt.php')
-					.then(function(response) {
-					response.text().then(function(text){
-					document.querySelector('article').innerHTML = text;
+				function(){fetch('http://localhost/cnt.php' , {
+					method : "POST",
+					headers: {
+ 					'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+ 					},
+					body: form
 					})
-				})//fetch를 하면 바로 실행되서 function 감싼다.
+					.then(console.log(form))
+					.catch(err=>console.log(err));
 			    }
 			);
 	</script>
