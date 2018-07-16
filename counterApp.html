@@ -70,12 +70,17 @@
 				document.querySelector('article').innerHTML = text;
 				})
 			});*/
-			var form  = new FormData(document.getElementById("formCnt"));
-			//var form2 = new FormData();
-			//form2.append('big','md','sm','total');
+			
+			//const form2 = new FormData();
+			//form2.append('inBig','inMd','inSm','inTotal');
 			btnFectch.addEventListener ("click",
-				function(){fetch('http://localhost/cnt.php' , {
+				function(){
+					var form  = new FormData(document.getElementById("formCnt"));
+					fetch('http://localhost/cnt.php' , {
 					method : "POST",
+					headers: {
+  					'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+  					},
 					body: form
 					})
 					.then(console.log(form))
