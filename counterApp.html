@@ -34,12 +34,13 @@
 		</table>
 		<input type="button" value="fetch" id="btnFectch">
 		<input type="submit" value="서버저장"  />
-		<input type="button" value="오늘 꺼 확인하기" />
+		<input type="button" value="오늘 꺼 확인하기" id="btnToday" />
 		</form>
 		<article>aaa</article>
 	</body>
 	<script>
-			var btnFetch = document.getElementById ("btnFectch")
+			var btnFetch = document.getElementById ("btnFectch");
+			var btnToday = document.getElementById("btnToday");
 			function counter(name){
 				var a = document.getElementById(name).value;
 				document.getElementById(name).value = ++a;
@@ -87,5 +88,15 @@
 					.catch(err=>console.log(err));
 			    }
 			);
+			btnToday.addEventListener("click",
+				function(){
+					fetch('http://localhost/checkCnt.php')
+					.then(function(res){
+						res.text().then(function(text){
+						document.querySelector('article').innerHTML = text;
+						})
+					})
+				}
+			)
 	</script>
 </html>
