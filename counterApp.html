@@ -34,6 +34,7 @@
 		</table>
 		<input type="button" value="fetch" id="btnFectch">
 		<input type="submit" value="서버저장"  />
+		<input type="button" value="오늘 꺼 확인하기" />
 		</form>
 		<article>aaa</article>
 	</body>
@@ -41,7 +42,6 @@
 			var btnFetch = document.getElementById ("btnFectch")
 			function counter(name){
 				var a = document.getElementById(name).value;
-				console.log(name);
 				document.getElementById(name).value = ++a;
 			}
 			
