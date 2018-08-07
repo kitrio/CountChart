@@ -7,7 +7,7 @@ $dbConnect = mysqli_connect("localhost","root","autoset");
 mysqli_select_db($dbConnect,'parkcnt');
 $today  = date('Y-m-d');
 echo $today;
-$query = " select * from parktable where  $today ";
+$query = " select * from parktable where  date = '$today' ";
 $result = mysqli_query($dbConnect,$query);
 //if($result-> num_rows > 0){
     // while ($row = mysqli_fetch_assoc($result)){
