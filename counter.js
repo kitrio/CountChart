@@ -37,6 +37,7 @@ btnFectch.addEventListener ("click",
     function(){
         var form  = new FormData(document.getElementById("formCnt"));
         fetch('http://localhost/cnt.php' , {
+		mode: 'no-cors',
         method : "POST",
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
@@ -47,13 +48,28 @@ btnFectch.addEventListener ("click",
         .catch(err=>console.log(err));
     }
 );
-btnToday.addEventListener("click",
-    function(){
-        fetch('http://localhost/checkCnt.php')
-        .then(function(res){
-            res.text().then(function(text){
-            document.querySelector('article').innerHTML = text;
+// btnToday.addEventListener("click",
+//     function(){
+//         fetch('http://localhost/checkCnt.php')
+//         .then(function(res){
+//             res.text().then(function(text){
+//             document.querySelector('article').innerHTML = text;
+//             })
+//         })
+//     });
+    btnToday.addEventListener("click",
+        function(){
+            axios.get('http://localhost/checkCnt.php')
+//            .then(function(res){
+//                res.text().then(function(text){
+//                    document.querySelector('article').innerHTML = text
+//                    console.log(a)
+//                })
+//            })
+            .then(r => console.dir(r))
+            //.then((response) => document.querySelector('article').innerHTML = response.data)
+            .then(function(response){
+                document.querySelector('article').innerHTML = response.data
             })
-        })
-    }
-)
+            .catch(e => console.log(e));
+        });
