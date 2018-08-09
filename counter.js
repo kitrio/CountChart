@@ -66,10 +66,10 @@ btnFectch.addEventListener ("click",
 //                    console.log(a)
 //                })
 //            })
-            .then(r => console.dir(r))
             //.then((response) => document.querySelector('article').innerHTML = response.data)
-            .then(function(response){
-                document.querySelector('article').innerHTML = response.data
+            .then((res) => {
+                document.querySelector('article').innerHTML = res.data
+                console.dir(res)
             })
             .catch(e => console.log(e));
         });
