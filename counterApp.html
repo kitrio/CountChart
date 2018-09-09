@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<header name = "Access-Control-Allow-Origin" value = "*" />
+		<header name = "Access-Control-Allow-Origin" value = "*" ></header>
+
 		
 		<style>
 			table {background-color : yellow;}
@@ -21,7 +22,9 @@
 				background-color: yellow;
 				}
 		</style>
+		<link rel="stylesheet" type="text/css" href="billboard.css">
 	</head>
+	
 	<body>
 		<ul>
 		<form action="http://localhost/cnt.php" method="post" id="formCnt">
@@ -49,18 +52,59 @@
 		<input type="button" value="오늘" id="btnToday" />
 		</form>
 		<article></article>
-		<div id="myChart" width="400" height="400"></canvas>
+		<div id="myChart"></div>
 		
 	</body>
 	<script src="moment.js"></script>
 	<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="billboard.js"></script>
 	<script src="axios.min.js"></script>
 	<script src="counter.js"></script>
-	
 	<script>
-		
+			var chart = bb.generate({
+				data: {
+					columns: [
+						["sm", 0, 2, 0, 3],
+						["md", 4, 3, 5, 2],
+						["big",0, 1, 2, 2]
+					],
+					type: "bar"
+				},
+				bar: {
+					width: {
+						ratio: 0.5
+					}
+				},
+				bindto: "#myChart"
+			});
+			setTimeout(function(){
+				chart.load({
+					columns: [
+						["data5",3 , 3, 50, 3]
+					],
+					type: "line"
+
+				});
+			},1000);
+			// var chart = bb.generate({
+			// data: {
+			// 	columns: [
+			// 	["data1", 30, 200, 100, 400, 150, 250],
+			// 	["data2", 130, 100, 140, 200, 150, 50]
+			// 	],
+			// 	type: "bar"
+			// },
+			// bar: {
+			// 	width: {
+			// 	ratio: 0.5
+			// 	}
+			// },
+			// bindto: "#myChart"
+			// });
+			// chart.data("data1");
 	
 	
 	</script>
+	
 </html>
