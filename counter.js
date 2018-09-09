@@ -33,21 +33,36 @@ function saveCount(){
 
 //const form2 = new FormData();
 //form2.append('inBig','inMd','inSm','inTotal');
-btnFectch.addEventListener ("click",
-    function(){
-        var form  = new FormData(document.getElementById("formCnt"));
-        fetch('http://localhost/cnt.php' , {
-		mode: 'no-cors',
-        method : "POST",
-        headers: {
-          'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
-          },
-        body: form
-        })
-        .then(console.log(form))
-        .catch(err=>console.log(err));
-    }
-);
+// btnFectch.addEventListener ("click",
+//     function(){
+//         let form  = new FormData(document.getElementById("formCnt"));
+//         fetch('http://localhost/cnt.php' , {
+// 		mode: 'no-cors',
+//         method : "POST",
+//         headers: {
+//           'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+//           },
+//         body: form
+//         })
+//         .then(console.log(form))
+//         .catch(err=>console.log(err));
+//     }
+// );
+    
+    btnFetch.addEventListener ("click",
+        () => {
+            let form  = new FormData(document.getElementById("formCnt"));
+            const headers_A = new Headers({
+                    'Access-Control-Allow-Origin' : '*',
+                    'Accept' : 'application/json, application/xml, text/plain, text/html, *.*'
+                });
+            axios.post('localhost/cnt.php',{
+            headers: headers_A,
+            body: form
+            })
+            .then(console.log(form))
+            .catch(e=>console.log(e));
+    });
 // btnToday.addEventListener("click",
 //     function(){
 //         fetch('http://localhost/checkCnt.php')
