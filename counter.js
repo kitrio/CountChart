@@ -56,10 +56,12 @@ function saveCount(){
                     'Access-Control-Allow-Origin' : '*',
                     'Accept' : 'application/json, application/xml, text/plain, text/html, *.*'
                 });
-            axios.post('localhost/cnt.php',{
-            headers: headers_A,
-            body: form
-            })
+            axios({
+                method: "POST",
+                url: 'http://localhost/cnt.php',
+                data: form,
+                headers: headers_A
+                })
             .then(console.log(form))
             .catch(e=>console.log(e));
     });
