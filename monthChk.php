@@ -11,7 +11,7 @@
         $firstday .= '-01';
         $today = date('Y-m-d');
         $query = "select * from parktable where date BETWEEN"." '$firstday'". " AND" . " '$today' " ;
-        echo $query;
+        //echo $query;
         $carCnt = array();
     }
     $result = mysqli_query($dbConnect,$query);
@@ -26,7 +26,6 @@
             $tmpCnt= array('big'=> $row['big'] ,'md'=> $row['mid'] , 'sm' => $row['small'] , 'total' => $row['total'] );
             array_push($carCnt , $tmpCnt);
             }
-            print_r( $carCnt); 
         echo json_encode($carCnt);
         }
     }
