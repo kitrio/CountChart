@@ -63,43 +63,9 @@
 	
 	<script src="counter.js"></script>
 	<script>
-			var chart = bb.generate({
-				data: {
-					x: "x",
-					//xFormat: "%Y-%m-%d",
-					columns: [
-						["x", "2018-09-01","2018-09-02","2018-09-03","2018-09-04"],
-						["sm", 0, 2, 0, 3],
-						["md", 4, 3, 5, 2],
-						["big",0, 1, 2, 2]
-					],
-					type: "bar"
-				},
-				bar: {
-					width: {
-						ratio: 0.5
-					}
-				},
-				axis: {
-					x: {
-						type: "timeseries",
-						localtime: false,
-						tick: {
-							format: "%Y %m-%d"
-						}
-					}
-				},
-				bindto: "#myChart"
-			});
-			setTimeout(function(){
-				chart.load({
-					columns: [
-						["data5",3 , 3, 50, 3]
-					],
-					type: "line"
+			
 
-				});
-			},1000);
+			
 			
 			
 	
