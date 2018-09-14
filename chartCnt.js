@@ -15,7 +15,7 @@
 			.then((res)=>{
 				dataCar = res;
 				//resArrPush();
-				console.log(res);
+
 				
 			}).then(()=>{
 				for(let i=0;i<dataCar.data.length;++i){
@@ -43,11 +43,11 @@
 		// 	}
 		// };
 		function graphTypeSelector(){
-			let graphType = document.querySelector('input[name="graphType"]:checked');
-			return graphType = graphType.value
+			return graphType = document.querySelector('input[name="graphType"]:checked').value;
+			
 		}
+
 		function displayChart(){
-		
 		const chart = bb.generate({
 			data: {
 				x: "x",
