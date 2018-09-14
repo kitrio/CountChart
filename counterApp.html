@@ -51,7 +51,10 @@
 		<!--<input type="submit" value="서버저장"  /> -->
 		<input type="button" value="오늘" id="btnToday" />
 		</form>
-		<article></article>
+		<input type="radio" name="graphType" value="line" onclick="displayChart()">line
+		<input type="radio" name="graphType" value="bar" onclick="displayChart()" checked>bar
+
+
 		<div id="myChart"></div>
 		
 	</body>
@@ -60,8 +63,8 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="billboard.js"></script>
-	
 	<script src="counter.js"></script>
+	<script src="chartCnt.js"></script>
 	<script>
 			
 

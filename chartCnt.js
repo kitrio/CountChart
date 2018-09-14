@@ -4,31 +4,34 @@
 		let mdArr = ["md"];
 		let bigArr = ["big"];
 		let totalArr = ["total"];
-		setTimeout(function() {
+		function monthChk(){
 			axios({
-				method: 'GET',
+				method: 'POST',
 				url: 'http://localhost/monthChk.php',
 				headers: {
-					'Accept' : '*' 
+					'Accept' : '*'
 				}
 			})
-			
 			.then((res)=>{
 				dataCar = res;
 				//resArrPush();
 				console.log(res);
 				
 			}).then(()=>{
-				for(let i=0;i<dataCar.data.length;i++){
+				for(let i=0;i<dataCar.data.length;++i){
 					timeArr.push( dataCar.data[i].date);
 					smArr.push(dataCar.data[i].sm);
 					mdArr.push(dataCar.data[i].md);
 					bigArr.push(dataCar.data[i].big);
 					totalArr.push(dataCar.data[i].total);
 				}
+			}).then(()=>{
+				displayChart();
 			})
 
-		},1);
+		};
+		
+		monthChk();
 		// let resArrPush = function(){
 			
 		// 	for(let i=0;i<dataCar.data.length;i++){
@@ -39,8 +42,13 @@
 		// 		totalArr.push(dataCar.data[i].total);
 		// 	}
 		// };
-		setTimeout(function(){
-let chart = bb.generate({
+		function graphTypeSelector(){
+			let graphType = document.querySelector('input[name="graphType"]:checked');
+			return graphType = graphType.value
+		}
+		function displayChart(){
+		
+		const chart = bb.generate({
 			data: {
 				x: "x",
 				xFormat: "%Y-%m-%d",
@@ -50,7 +58,7 @@ let chart = bb.generate({
 					mdArr,//["md", 4, 3, 5, 2],
 					bigArr//["big",0, 1, 2, 2]
 				],
-				type: "bar"
+				type: graphTypeSelector()
 			},
 			bar: {
 				width: {
@@ -68,13 +76,12 @@ let chart = bb.generate({
 			},
 			bindto: "#myChart"
 		});
-		// setTimeout(function(){
-		// 	chart.load({
-		// 		columns: [
-		// 			["data5",3 , 3, 50, 3]
-		// 		],
-		// 		type: "line"
-        //         }); 
-        //     },200);
-		},2000)
-		
+		setTimeout(function(){
+			chart.load({
+				columns: [
+					totalArr
+				],
+				type: "line"
+                }); 
+		    },200);
+	}
