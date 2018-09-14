@@ -19,7 +19,7 @@
 				console.log(res);
 				
 			}).then(()=>{
-				for(var i=0;i<dataCar.data.length;i++){
+				for(let i=0;i<dataCar.data.length;i++){
 					timeArr.push( dataCar.data[i].date);
 					smArr.push(dataCar.data[i].sm);
 					mdArr.push(dataCar.data[i].md);
@@ -31,7 +31,7 @@
 		},1);
 		// let resArrPush = function(){
 			
-		// 	for(var i=0;i<dataCar.data.length;i++){
+		// 	for(let i=0;i<dataCar.data.length;i++){
 		// 		timeArr.push( dataCar.data[i].date);
 		// 		smArr.push(dataCar.data[i].sm);
 		// 		mdArr.push(dataCar.data[i].md);
@@ -40,7 +40,7 @@
 		// 	}
 		// };
 		setTimeout(function(){
-var chart = bb.generate({
+let chart = bb.generate({
 			data: {
 				x: "x",
 				xFormat: "%Y-%m-%d",
