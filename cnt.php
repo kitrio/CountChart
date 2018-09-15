@@ -14,7 +14,6 @@ $dbConnect = mysqli_connect("localhost","root","autoset");
 	echo $today;
 	$query = "insert into parktable (total,big,mid,small,date) values ($total,$big,$md,$sm, $today)";
 	
-	//$query = "update parktable set big = $big where date = date("Ymd");
 	$result = mysqli_query($dbConnect,$query); //쿼리실행
 	mysqli_close($dbConnect);
 ?>

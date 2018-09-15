@@ -21,7 +21,6 @@
     //echo $firstday . '-01'; //. is string + operation
         if(!$result || mysqli_num_rows($result) > 0 ){
             while($row = mysqli_fetch_assoc($result)) {
-            //echo "<br>대: " . $row["big"]. " md: " . $row["mid"]. "sm: " . $row["small"]. " total: " . $row["total"] . "<br>"
             
             $tmpCnt= array('big'=> $row['big'] ,'md'=> $row['mid'] , 'sm' => $row['small'] , 'total' => $row['total'], 'date' => $row['date'] );
             array_push($carCnt , $tmpCnt);
