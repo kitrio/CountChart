@@ -1,4 +1,3 @@
-        let dataCar;
 		let timeArr = ["x"];
 		let smArr = ["sm"];
 		let mdArr = ["md"];
@@ -13,17 +12,14 @@
 				}
 			})
 			.then((res)=>{
-				dataCar = res;
+				//dataCar = res;
 				//resArrPush();
-
-				
-			}).then(()=>{
-				for(let i=0;i<dataCar.data.length;++i){
-					timeArr.push( dataCar.data[i].date);
-					smArr.push(dataCar.data[i].sm);
-					mdArr.push(dataCar.data[i].md);
-					bigArr.push(dataCar.data[i].big);
-					totalArr.push(dataCar.data[i].total);
+				for(let i=0;i<res.data.length;++i){
+					timeArr.push( res.data[i].date);
+					smArr.push(res.data[i].sm);
+					mdArr.push(res.data[i].md);
+					bigArr.push(res.data[i].big);
+					totalArr.push(res.data[i].total);
 				}
 			}).then(()=>{
 				displayChart();
@@ -42,10 +38,9 @@
 		// 		totalArr.push(dataCar.data[i].total);
 		// 	}
 		// };
-		function graphTypeSelector(){
-			return graphType = document.querySelector('input[name="graphType"]:checked').value;
-			
-		}
+		// function graphTypeSelector(){
+		// 	return document.querySelector('input[name="graphType"]:checked').value;
+		// }
 
 		function displayChart(){
 		const chart = bb.generate({
@@ -58,7 +53,7 @@
 					mdArr,//["md", 4, 3, 5, 2],
 					bigArr//["big",0, 1, 2, 2]
 				],
-				type: graphTypeSelector()
+				type: document.querySelector('input[name="graphType"]:checked').value//graphTypeSelector()
 			},
 			bar: {
 				width: {
@@ -82,6 +77,6 @@
 					totalArr
 				],
 				type: "line"
-                }); 
-		    },200);
+                });
+		    },1000);
 	}
