@@ -1,7 +1,7 @@
-var btnFetch = document.getElementById ("btnFectch");
-var btnToday = document.getElementById("btnToday");
+const btnFetch = document.getElementById ("btnFectch");
+const btnToday = document.getElementById("btnToday");
 function counter(name){
-    var a = document.getElementById(name).value;
+    let a = document.getElementById(name).value;
     document.getElementById(name).value = ++a;
 }
 
