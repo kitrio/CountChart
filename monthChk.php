@@ -5,8 +5,9 @@
 
     $dbConnect = mysqli_connect("localhost","root","autoset");
     mysqli_select_db($dbConnect,'parkcnt');
+    $FIRST_DAY = 1;
     $today  = date('d');
-    if($today != 1){
+    if($today != $FIRST_DAY){
         $firstday = date('Y-m');
         $firstday .= '-01';
         $today = date('Y-m-d');
