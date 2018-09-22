@@ -38,9 +38,6 @@
 		// 		totalArr.push(dataCar.data[i].total);
 		// 	}
 		// };
-		// function graphTypeSelector(){
-		// 	return document.querySelector('input[name="graphType"]:checked').value;
-		// }
 
 		function displayChart(){
 		const chart = bb.generate({
