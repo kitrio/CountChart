@@ -12,8 +12,6 @@
 				  }
 			})
 			.then((res)=>{
-				//dataCar = res;
-				//resArrPush();
 				const arrLength = res.data.length;
 				for(let i=0;i<arrLength;++i){
 					timeArr.push( res.data[i].date);
@@ -29,16 +27,6 @@
 		};
 		
 		monthChk();
-		// let resArrPush = function(){
-			
-		// 	for(let i=0;i<dataCar.data.length;i++){
-		// 		timeArr.push( dataCar.data[i].date);
-		// 		smArr.push(dataCar.data[i].sm);
-		// 		mdArr.push(dataCar.data[i].md);
-		// 		bigArr.push(dataCar.data[i].big);
-		// 		totalArr.push(dataCar.data[i].total);
-		// 	}
-		// };
 
 		function displayChart(){
 		const chart = bb.generate({
@@ -76,5 +64,5 @@
 				],
 				type: "line"
                 });
-		    },1000);
+		    },800);
 	}
