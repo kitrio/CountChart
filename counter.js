@@ -8,15 +8,14 @@ function counter(name){
     btnFetch.addEventListener ("click",
         () => {
             let form  = new FormData(document.getElementById("formCnt"));
-            const headers_A = new Headers({
-                    'Access-Control-Allow-Origin' : '*',
-                    'Accept' : 'application/json, application/xml, text/plain, text/html, *.*'
-                });
             axios({
                 method: "POST",
+                headers: {
+					'Access-Control-Allow-Origin' : '*',
+                    'Accept' : 'application/json, text/plain'
+				  },
                 url: 'http://localhost/cnt.php',
-                data: form,
-                headers: headers_A
+                data: form
                 })
             .then(console.log(form))
             .catch(e=>console.log(e));

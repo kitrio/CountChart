@@ -8,13 +8,14 @@
 				method: 'POST',
 				url: 'http://localhost/monthChk.php',
 				headers: {
-					'Accept' : '*'
-				}
+					"Content-Type": "application/json",
+				  }
 			})
 			.then((res)=>{
 				//dataCar = res;
 				//resArrPush();
-				for(let i=0;i<res.data.length;++i){
+				const arrLength = res.data.length;
+				for(let i=0;i<arrLength;++i){
 					timeArr.push( res.data[i].date);
 					smArr.push(res.data[i].sm);
 					mdArr.push(res.data[i].md);
