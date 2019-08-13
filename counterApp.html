@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<header name = "Access-Control-Allow-Origin" value = "*" ></header>
 
-		
 		<style>
 			table {background-color : yellow;}
 			table th{background-color : gold;}
@@ -26,36 +25,33 @@
 	</head>
 	
 	<body>
-		<ul>
 		<form action="http://localhost/cnt.php" method="post" id="formCnt">
 		<table>
 		<tr>
-			<th>대</th> 
-			<th>중</th>
-			<th>소</th>
+			<th>소형</th>
+			<th>중형</th>
+			<th>대형</th>
 			<th>총합</th>
 		</tr>
 		<tr>
-			<td> <input type="number" id="big" name="inBig" value="0"></td>
-			<td> <input type="number" id="md"  name="inMd"  value="0"></td>
 			<td> <input type="number" id="sm"  name="inSm"  value="0"></td>
+			<td> <input type="number" id="md"  name="inMd"  value="0"></td>
+			<td> <input type="number" id="big" name="inBig" value="0"></td>
 			<td> <input type="number" id="total" name="inTotal" value="1"></td>
 		</tr>
 		<tr>
-			<td><button type = "button" name="big" value="1"onclick="counter(name)">+</button></td>
+			<td><button type = "button" name="sm" value="1"onclick="counter(name)">+</button></td>
 			<td><button type = "button" name="md" value="1" onclick="counter(name)">+</button></td>
-			<td><button type = "button" name="sm" value="1" onclick="counter(name)">+</button></td>
+			<td><button type = "button" name="big" value="1" onclick="counter(name)">+</button></td>
 		</tr>
 		</table>
 		<input type="button" value="전송" id="btnFectch">
-		<!--<input type="submit" value="서버저장"  /> -->
-		<input type="button" value="오늘" id="btnToday" />
+		<input type="button" value="오늘 차량 대수" id="btnToday"/>
 		</form>
 		<input type="radio" name="graphType" value="line" onclick="displayChart()">line
 		<input type="radio" name="graphType" value="bar" onclick="displayChart()" checked>bar
 
-		<article></article>
-		<div id="myChart"></div>
+		<article id="myChart"></article>
 		
 	</body>
 	<!--<script src="axios.min.js"></script>
@@ -65,13 +61,4 @@
 	<script src="billboard.js"></script>
 	<script src="counter.js"></script>
 	<script src="chartCnt.js"></script>
-	<script>
-			
-
-			
-			
-			
-	
-	</script>
-	
 </html>
