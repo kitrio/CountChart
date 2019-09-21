@@ -1,7 +1,7 @@
 <?php
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
-    header('Content-Type : application/json');
+    header('Content-Type: application/json');
 
     $dbConnect = mysqli_connect("localhost","root","autoset");
     mysqli_select_db($dbConnect,'parkcnt');
