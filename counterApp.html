@@ -1,64 +1,71 @@
 ﻿<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<header name = "Access-Control-Allow-Origin" value = "*" ></header>
 
-		<style>
-			table {background-color : yellow;}
-			table th{background-color : gold;}
-			tr td input {
-				width : 40px;
-				height: 3em;
-				background-color: yellow;
-				border : none;
-				float: left;
-				padding-left:  40px;
-				}
-			table tr td button {
-				margin: 30%;
-				background-color: yellow;
-				}
-		</style>
-		<link rel="stylesheet" type="text/css" href="./css/billboard.css">
-	</head>
-	
-	<body>
-		<form action="http://localhost/cnt.php" method="post" id="formCnt">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<header name="Access-Control-Allow-Origin" value="*"></header>
+
+	<style>
+		table {
+			background-color: yellow;
+		}
+
+		table th {
+			background-color: gold;
+		}
+
+		tr td input {
+			width: 40px;
+			height: 3em;
+			background-color: yellow;
+			border: none;
+			float: left;
+			padding-left: 40px;
+		}
+
+		table tr td button {
+			margin: 30%;
+			background-color: yellow;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="./css/billboard.css">
+</head>
+
+<body>
+	<form action="http://localhost/cnt.php" method="post" id="formCnt">
 		<table>
-		<tr>
-			<th>소형</th>
-			<th>중형</th>
-			<th>대형</th>
-			<th>총합</th>
-		</tr>
-		<tr>
-			<td> <input type="number" id="sm"  name="inSm"  value="0"></td>
-			<td> <input type="number" id="md"  name="inMd"  value="0"></td>
-			<td> <input type="number" id="big" name="inBig" value="0"></td>
-			<td> <input type="number" id="total" name="inTotal" value="1"></td>
-		</tr>
-		<tr>
-			<td><button type = "button" name="sm" value="1"onclick="counter(name)">+</button></td>
-			<td><button type = "button" name="md" value="1" onclick="counter(name)">+</button></td>
-			<td><button type = "button" name="big" value="1" onclick="counter(name)">+</button></td>
-		</tr>
+			<tr>
+				<th>소형</th>
+				<th>중형</th>
+				<th>대형</th>
+				<th>총합</th>
+			</tr>
+			<tr>
+				<td> <input type="number" id="sm" name="inSm" value="0"></td>
+				<td> <input type="number" id="md" name="inMd" value="0"></td>
+				<td> <input type="number" id="big" name="inBig" value="0"></td>
+				<td> <input type="number" id="total" name="inTotal" value="1"></td>
+			</tr>
+			<tr>
+				<td><button type="button" name="sm" value="1" onclick="counter(name)">+</button></td>
+				<td><button type="button" name="md" value="1" onclick="counter(name)">+</button></td>
+				<td><button type="button" name="big" value="1" onclick="counter(name)">+</button></td>
+			</tr>
 		</table>
 		<input type="button" value="전송" id="btnFectch">
-		<input type="button" value="오늘 차량 대수" id="btnToday"/>
-		</form>
-		<input type="radio" name="graphType" value="line" onclick="displayChart()">line
-		<input type="radio" name="graphType" value="bar" onclick="displayChart()" checked>bar
+		<input type="button" value="오늘 차량 대수" id="btnToday" />
+	</form>
+	<input type="radio" name="graphType" value="line" onclick="displayChart()">line
+	<input type="radio" name="graphType" value="bar" onclick="displayChart()" checked>bar
 
-		<article id="myChart"></article>
-		
-	</body>
-	<!--<script src="axios.min.js"></script>
-	<script src="moment.js"></script>-->
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="./js/billboard.js"></script>
-	<script src="./js/counter.js"></script>
-	<script src="./js/chartCnt.js"></script>
+	<article id="myChart"></article>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="./js/billboard.js"></script>
+<script src="./js/counter.js"></script>
+<script src="./js/chartCnt.js"></script>
+
 </html>
