@@ -1,25 +1,24 @@
 <?php
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
-    header('Content-Type: application/json');
+    header('Content-Type: application/json; charset=UTF-8');
 
     $dbConnect = mysqli_connect("localhost","root","autoset");
     mysqli_select_db($dbConnect,'parkcnt');
+
     $FIRST_DAY = 1;
     $today  = date('d');
     if($today != $FIRST_DAY){
         $firstday = date('Y-m');
         $firstday .= '-01';
         $today = date('Y-m-d');
-        $query = "select * from parktable where date BETWEEN"." '$firstday'". " AND" . " '$today' " ;
-        //echo $query;
-        $carCnt = array();
+        $query = $dbConnect->prepare('select * from parktable where date BETWEEN ? AND ? ') ;
+        $query -> bind_param('ss',$firstday,$today);
     }
-    $result = mysqli_query($dbConnect,$query);
+    $result = mysqli_stmt_execute($query);
     if($result === false){
         echo "connect error";
     }else{
-    //echo $firstday . '-01'; //. is string + operation
         if(!$result || mysqli_num_rows($result) > 0 ){
             while($row = mysqli_fetch_assoc($result)) {
             
@@ -29,4 +28,3 @@
         echo json_encode($carCnt);
         }
     }
-?>

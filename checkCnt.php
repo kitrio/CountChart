@@ -1,12 +1,13 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT');
+header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type");
 
 $dbConnect = mysqli_connect('localhost','root','autoset');
 mysqli_select_db($dbConnect,'parkcnt');
 $today  = date('Y-m-d');
 echo $today;
+
 $query = "select * from parktable where  date = '$today' ";
 $result = mysqli_query($dbConnect,$query);
     if(!$result || mysqli_num_rows($result) > 0 ){// num_rows 는 fasle 시 error 발생
@@ -15,4 +16,3 @@ $result = mysqli_query($dbConnect,$query);
     }
 }
 mysqli_close($dbConnect);
-?>
