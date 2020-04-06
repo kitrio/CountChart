@@ -4,31 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<header name="Access-Control-Allow-Origin" value="*"></header>
-
-	<style>
-		table {
-			background-color: yellow;
-		}
-
-		table th {
-			background-color: gold;
-		}
-
-		tr td input {
-			width: 40px;
-			height: 3em;
-			background-color: yellow;
-			border: none;
-			float: left;
-			padding-left: 40px;
-		}
-
-		table tr td button {
-			margin: 30%;
-			background-color: yellow;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<link rel="stylesheet" type="text/css" href="./css/billboard.css">
 </head>
 
@@ -60,12 +36,12 @@
 	<input type="radio" name="graphType" value="bar" onclick="displayChart()" checked>bar
 
 	<article id="myChart"></article>
-
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="./js/billboard.js"></script>
+	<script src="./js/counter.js"></script>
+	<script src="./js/chartCnt.js"></script>
 </body>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="./js/billboard.js"></script>
-<script src="./js/counter.js"></script>
-<script src="./js/chartCnt.js"></script>
+
 
 </html>

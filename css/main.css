@@ -1,0 +1,22 @@
+table {
+  background-color:beige;
+}
+
+table th {
+  background-color:#000000;
+  color:#ffffff;
+}
+
+tr td input {
+  width: 40px;
+  height: 3em;
+  border: none;
+  float: left;
+  padding-left: 40px;
+}
+
+table tr td button {
+  margin: 30%;
+  background-color:#ffffff;
+  color:#000000;
+}
