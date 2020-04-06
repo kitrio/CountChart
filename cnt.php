@@ -1,4 +1,5 @@
 <?php
+	require_once "../config.php";
 	header('Access-Control-Allow-Origin: *');
 	header('Access-Control-Allow-Methods: GET, POST, PUT');
 	header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
@@ -10,7 +11,6 @@
 
 	$today = date('Ymd');
 	
-	$dbConnect = mysqli_connect('localhost','root','autoset','parkcnt');
 	$query = $dbConnect->prepare('insert into parktable (total,big,mid,small,date) values (?, ?, ?, ?, ?)');
 	$query->bind_param('iiiis', $total, $big, $md, $sm, $today);
 	$query->execute();

@@ -1,13 +1,10 @@
 <?php
+require_once "../config.php";
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type");
 
-$dbConnect = mysqli_connect('localhost','root','autoset');
-mysqli_select_db($dbConnect,'parkcnt');
 $today  = date('Y-m-d');
-echo $today;
-
 $query = $dbConnect ->prepare("select * from parktable where  date = ? ");
 $query -> bind_param('s', $today);
 $exec = mysqli_stmt_execute($query);
