@@ -5,8 +5,8 @@ let bigArr = ["big"];
 let totalArr = ["total"];
 function monthChk() {
 	axios({
-		method: 'POST',
-		url: 'http://localhost/monthChk.php',
+		method: 'post',
+		url: 'http://localhost/monthcheck.php',
 		headers: {
 			"Content-Type": "application/json",
 		}
@@ -22,6 +22,9 @@ function monthChk() {
 			}
 		}).then(() => {
 			displayChart();
+		})
+		.catch((e) => {
+			console.log(e)
 		})
 
 };
@@ -39,7 +42,7 @@ function displayChart() {
 				mdArr,//["md", 4, 3, 5, 2],
 				bigArr//["big",0, 1, 2, 2]
 			],
-			type: document.querySelector('input[name="graphType"]:checked').value//graphTypeSelector()
+			type: document.querySelector('input[name="graphType"]:checked').value
 		},
 		bar: {
 			width: {
