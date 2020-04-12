@@ -23,7 +23,6 @@ function monthChk() {
 		}).then(() => {
 			displayChart();
 		})
-
 };
 
 monthChk();
