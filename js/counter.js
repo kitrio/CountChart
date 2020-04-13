@@ -9,24 +9,31 @@ btnFetch.addEventListener("click",
     () => {
         let form = new FormData(document.getElementById("formCnt"));
         axios({
-            method: "POST",
+            method: "post",
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Accept': 'application/json, text/plain'
+                'Accept': 'application/json'
             },
-            url: 'http://localhost/cnt.php',
+            url: 'http://localhost/upload.php',
             data: form
         })
-            .then(console.log(form))
-            .catch(e => console.log(e));
+        .then(console.log(form))
+        .catch(e => console.log(e));
     });
 
 btnToday.addEventListener("click",
-    function () {
-        axios.get('http://localhost/checkCnt.php')
-            .then((res) => {
-                document.querySelector('article').innerHTML = res.data
-                console.dir(res)
-            })
-            .catch(e => console.log(e));
+    () => {
+        axios({
+            method: "get",
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Accept': 'text/plain'
+            },
+            url:'http://localhost/checkcount.php'
+        })
+        .then((res) => {
+            document.querySelector('article').innerHTML = res.data
+            console.dir(res)
+        })
+        .catch(e => console.log(e));
     });
