@@ -3,25 +3,25 @@
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
     header('Content-Type: application/json; charset=UTF-8');
-    
+
     $firstDay = date('Y-m-01');
     $today = date('Y-m-d');
 
     $query = $dbConnect -> prepare('select * from parktable where date BETWEEN ? AND ? ');
-    $query -> bind_param('ss',$firstDay,$today);
+    $query -> bind_param('ss', $firstDay, $today);
     $exec = mysqli_stmt_execute($query);
-    if($exec === false){
-        echo "connect error";
-    }else{
+    if ($exec === false) {
+        echo json_encode("db error not found park data");
+    } else {
         $result = mysqli_stmt_get_result($query);
-        if(mysqli_num_rows($result) > 0 ){
+        if (mysqli_num_rows($result) > 0) {
             $carCnt = array();
-            while($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $tmpCnt= array('big' => $row['big'] ,'md' => $row['mid'] , 'sm' => $row['small'] ,
                                 'total' => $row['total'], 'date' => $row['date'] );
-                array_push($carCnt , $tmpCnt);
+                array_push($carCnt, $tmpCnt);
             }
-        echo json_encode($carCnt);
+            echo json_encode($carCnt);
         }
     }
     mysqli_close($dbConnect);
